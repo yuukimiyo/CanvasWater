@@ -1,4 +1,4 @@
 CanvasWater
 ===========
 
-HTML5's Canvas Page as Water
+www page as Water of HTML5's Canvas.
