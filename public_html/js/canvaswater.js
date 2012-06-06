@@ -36,11 +36,19 @@ function draw() {
 	if (!canvas.getContext) { return false; }
   
 	var ctx = canvas.getContext('2d');
+
+	ctx.fillStyle = 'rgb(0, 80, 77)';
+	ctx.fillRect(0, 0, $("#wrapper").width(), $("#wrapper").height());
+	ctx.fill();
+
 	ctx.beginPath();
 	ctx.moveTo(20, 20);
-	ctx.lineTo(120, 20);
-	ctx.lineTo(120, 120);
-	ctx.lineTo(20, 120);
+	ctx.lineTo(200, 20);
+	ctx.lineTo(200, 200);
+	ctx.lineTo(20, 200);
 	ctx.closePath();
+	ctx.fillStyle = 'rgb(192, 80, 77)';
+	ctx.fill();
+	
 	ctx.stroke();
 }
