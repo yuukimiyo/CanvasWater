@@ -13,12 +13,14 @@
 */
 
 var cm;
+var am;
 
 /**
  * constractor 
  */
 function canvaswater() {
-	cm = new CanvasManager(); 
+	cm = new CanvasManager();
+	am = new animationMaster();
 }
 
 /**
@@ -45,11 +47,30 @@ window.onload=function(){
 	
 	$("#canvaswater").mousedown(function(e){
 		cm.clickHandra(e);
+		am.setCanvasManager(cm);
+		am.start();
     });
     
     $("#canvaswater").mouseup(function(e){
-		cm.deleteCircle(e);
+		cm.clearCanvas();
     });
+}
+
+/**
+ * 
+ * @param cm CanvasManager 
+ */
+function animationMaster() {
+	var obj = this;
+	var cm;
+	
+	obj.setCanvasManager = function(c) {
+		cm = c;
+	}
+	
+	obj.start = function() {
+		cm.drawPointCircle(cm.mouseX, cm.mouseY, 50);
+	}
 }
 
 function CanvasManager(){
@@ -64,12 +85,16 @@ function CanvasManager(){
 	obj.canvasWidth = 0;
 	obj.canvasHeight = 0;
 	
-	obj.bgColor = 'rgb(0, 80, 77)';
+	obj.bgColor = 'rgb(0, 77, 80)';
 	obj.rectColor = 'rgb(192, 80, 77)';
+	obj.circleColor = 'rgb(255, 255, 255)';
 	
 	obj.startRadius = 40;
 	obj.radius = obj.startRadius;
 	
+	/**
+	 * fill background 
+	 */
 	obj.drawBackground = function() {
 		obj.ctx.fillStyle = obj.bgColor;
 		obj.ctx.fillRect(obj.offsetLeft, obj.offsetTop, obj.canvasWidth, obj.canvasHeight);
@@ -79,7 +104,35 @@ function CanvasManager(){
 	obj.clickHandra = function(e) {
 		obj.mouseX = Math.floor(e.pageX - obj.offsetLeft);
 		obj.mouseY = Math.floor(e.pageY - obj.offsetTop);
-		obj.drawCircle();
+		// obj.drawCircle();
+		// obj.drawPointCircle(obj.mouseX, obj.mouseY, 100);
+	}
+	
+	obj.drawPointCircle = function(x,y,r) {
+		obj.polygon = 200;
+		
+		obj.ctx.beginPath();
+		obj.ctx.moveTo(x + r, y);
+		for (i = 0; i <= obj.polygon; i++) {
+			t=3.14*2*i/obj.polygon;
+			obj.ctx.lineTo(Math.cos(t)*r+x, Math.sin(t)*r+y);
+		}
+		obj.ctx.strokeStyle = obj.circleColor;
+		obj.ctx.stroke();
+	}
+	
+	obj.drawRect = function (x,y,r) {
+		/*
+		obj.ctx.beginPath();
+		obj.ctx.moveTo(x, y - r);
+		obj.ctx.lineTo(x + r, y);
+		obj.ctx.lineTo(x, y + r);
+		obj.ctx.lineTo(x - r, y);
+		obj.ctx.lineTo(x, y - r);
+		obj.ctx.strokeStyle = obj.circleColor;
+		obj.ctx.closePath();
+		obj.ctx.stroke();
+		*/
 	}
 	
 	obj.drawCircle = function() {
@@ -88,8 +141,7 @@ function CanvasManager(){
 		obj.ctx.stroke();
 	}
 	
-	obj.deleteCircle = function() {
-		obj.ctx.beginPath();
+	obj.clearCanvas = function() {
 		obj.ctx.clearRect(obj.offsetLeft, obj.offsetTop, obj.canvasWidth, obj.canvasHeight);
 		obj.drawBackground();
 	}
