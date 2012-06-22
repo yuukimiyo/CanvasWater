@@ -1,5 +1,5 @@
 CanvasWater
 ===========
 
-make circle in your window.
+make circle in your window.<br />
 mainscript ./js/canvaswater.js
