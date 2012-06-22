@@ -83,7 +83,6 @@ function AnimationManager() {
 		} else {
 			// alert("over");
 		}
-    	
 	}
 }
 
@@ -101,7 +100,7 @@ function CanvasManager(){
 	var radius = startRadius;
 	
 	/**
-	 * context 's setter & getter
+	 * context 's setter
 	 */
 	this.setContext = function(c) {
 		ctx = c;
