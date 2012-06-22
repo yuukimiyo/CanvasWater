@@ -100,15 +100,26 @@ function CanvasManager(){
 	var startRadius = 40;
 	var radius = startRadius;
 	
+	/**
+	 * context 's setter & getter
+	 */
 	this.setContext = function(c) {
 		ctx = c;
 	}
+	
+	/**
+	 * offsetLeft 's setter & getter
+	 */
 	this.setOffsetLeft = function(l) {
 		offsetLeft = l;
 	}
 	this.getOffsetLeft = function() {
 		return offsetLeft;
 	}
+	
+	/**
+	 * offsetTop 's setter & getter
+	 */
 	this.setOffsetTop = function(t) {
 		offsetTop = t;
 	}
@@ -116,12 +127,19 @@ function CanvasManager(){
 		return offsetTop;
 	}
 	
+	/**
+	 * mouseX 's setter & getter
+	 */
 	this.setMouseX = function(x) {
 		mouseX = x;
 	}
 	this.getMouseX = function() {
 		return mouseX;
 	}
+	
+	/**
+	 * mouseY 's setter & getter
+	 */
 	this.setMouseY = function(y) {
 		mouseY = y;
 	}
@@ -129,10 +147,17 @@ function CanvasManager(){
 		return mouseY;
 	}
 	
+	/**
+	 * width 's setter
+	 */
 	this.setWidth = function(w) {
 		canvasWidth = w;
 		$("#canvaswater").attr({width:canvasWidth});
 	}
+	
+	/**
+	 * height 's setter 
+	 */
 	this.setHeight = function(h) {
 		canvasHeight = h;
 		$("#canvaswater").attr({height:canvasHeight});

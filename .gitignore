@@ -10,3 +10,4 @@
 _svn
 svn-commit*.tmp
 .gitignore
+.project
