@@ -32,6 +32,13 @@ Usage
 </html>
 ```
 
+Dependency
+---
+このソフトウェアは以下のコードを利用しています。
+* jQuery-1.7.2
+* excanvas.js (by Google Inc.)
+* reset.css (by Yahoo! Inc.)
+
 Change log
 ---
 * 2012-06-21 目標達成
