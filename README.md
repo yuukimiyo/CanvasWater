@@ -1,15 +1,14 @@
 CanvasWater
 ===
+Sample of javaScript and html5 canvas.
 
 About
 ---
 HTML5のキャンバスに波紋のような円を描くサンプルです。
-
-JavaScript html5 canvas library
+画面をクリックすると、クリックした場所を中心に円が拡大します。
 
 Usage
 ---
-
 次のようなHTMLファイルで動作します。
 
 ```html
@@ -32,7 +31,8 @@ Usage
 </body>
 </html>
 ```
+
 Change log
 ---
-* 2012-06-21 とりあいず、目標達成
+* 2012-06-21 目標達成
 * 2012-06-05 作成開始
